@@ -24,20 +24,48 @@ function playRound(playerSelection, computerSelection) {
   else condition = 1;
   switch (condition) {
     case 0:
-      return "It's a draw";
+      console.log("It's a draw");
+      break;
     case 1:
-      return `You Win! ${playerSelection} beats ${computerSelection}`;
+      console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+      break;
     case 2:
-      return `You Lose! ${computerSelection} beats ${playerSelection}`;
+      console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+      break;
+  }
+  return condition;
+}
+
+//Game Function
+function game() {
+  let playerSelection = prompt("Select:\nRock\nPaper\nScissors");
+  playerSelection = playerSensitive(playerSelection);
+  const computerSelection = getComputerChoice();
+  result = playRound(playerSelection, computerSelection);
+  if (result == 1) {
+    playerWins++;
+  } else if (result == 2) {
+    computerWins++;
   }
 }
 
+//Game Options and number of rounds
 const choices = ["Rock", "Paper", "Scissors"];
+const gameRounds = 5;
+let playerWins = 0,
+  computerWins = 0;
 
-let playerSelection = prompt("Select:\nRock\nPaper\nScissors");
-playerSelection = playerSensitive(playerSelection);
+for (let i = 0; i < gameRounds; i++) {
+  game();
+}
 
-const computerSelection = getComputerChoice();
-
-//TEMP OUTPUT LOGS
-console.log(playRound(playerSelection, computerSelection));
+//Print Results
+if (playerWins == computerWins) {
+  console.log("Draw");
+} else if (playerWins > computerWins) {
+  console.log("You win! With a total of " + playerWins + " victories!");
+} else {
+  console.log(
+    "You lost! The computer had a total of " + computerWins + " victories!"
+  );
+}
