@@ -13,13 +13,26 @@ function playerSensitive(playerSelection) {
 
 function playRound(playerSelection, computerSelection) {
   // your code here!
-  return;
+  if (playerSelection == computerSelection) return "Draw";
+  else if (
+    (playerSelection == "Paper" && computerSelection == "Scissors") ||
+    (playerSelection == "Rock" && computerSelection == "Paper") ||
+    (playerSelection == "Scissors" && computerSelection == "Rock")
+  )
+    return "Lose";
+  else return "Win";
 }
 
 const choices = ["Rock", "Paper", "Scissors"];
-let playerSelection = prompt("Select:\nRock\nPaper\nScissor");
+
+let playerSelection = prompt("Select:\nRock\nPaper\nScissors");
 playerSelection = playerSensitive(playerSelection);
 
 const computerSelection = getComputerChoice();
-console.log("Computer Choice Was: " + computerSelection);
+let condition = playRound(playerSelection, computerSelection);
+
+
+//TEMP OUTPUT LOGS
 console.log("Player Choice Was: " + playerSelection);
+console.log("Computer Choice Was: " + computerSelection);
+console.log("Condition: " + condition);
