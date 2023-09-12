@@ -6,8 +6,13 @@
 
 body {
   font-family: Roboto, Helvetica, sans-serif;
-  background: rgb(16,75,99);
-  background: linear-gradient(90deg, rgba(16,75,99,1) 0%, rgba(21,121,162,1) 50%, rgba(16,75,99,1) 100%);
+  background: rgb(16, 75, 99);
+  background: linear-gradient(
+    90deg,
+    rgba(16, 75, 99, 1) 0%,
+    rgba(21, 121, 162, 1) 50%,
+    rgba(16, 75, 99, 1) 100%
+  );
 }
 
 button {
@@ -15,60 +20,81 @@ button {
   width: 250px;
 }
 
-
 .pageContainer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 15%;
-    gap: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 15%;
+  gap: 150px;
 }
 
 .score {
-    min-height: 15%;
+  min-height: 15%;
+  width: 400px;
+  padding: 100px 200px;
+  font-size: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: aliceblue;
+  background-color: #124354;
+  border-style: solid;
+  border: none;
+  border-radius: 55px;
 }
 
 .playerPick {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    border-style: dashed;
-    max-width: 500px;
-    background-color: #124354;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 55px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-style: dashed;
+  max-width: 500px;
+  background-color: #124354;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 55px;
 }
 
 .playerPick img {
-    height: 100%;
-    width: auto;
-    pointer-events: none;
-    margin-right: 10px;
-  }
+  height: 100%;
+  width: auto;
+  pointer-events: none;
+  margin-right: 10px;
+}
 
+.results {
+  min-height: 15%;
+  width: 500px;
+  padding: 100px 200px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: aliceblue;
+  background-color: #124354;
+  border-style: solid;
+  border: none;
+  border-radius: 55px;
+}
 
-
-
-  
 #Rock,
 #Paper,
 #Scissor {
-    background: #b0bbc0b7;
-    border: solid;
-    border-radius: 55px;
-    cursor: pointer;
+  background: #b0bbc0b7;
+  border: solid;
+  border-radius: 55px;
+  cursor: pointer;
 }
 
 #Rock:hover,
 #Paper:hover,
 #Scissor:hover {
-    background: #1f647b;
+  background: #1f647b;
 }
 
 #Rock:active,
 #Paper:active,
 #Scissor:active {
-    background: #b4e8b8;
+  background: #b4e8b8;
 }

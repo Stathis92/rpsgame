@@ -26,28 +26,24 @@ function playRound(playerSelection) {
   switch (condition) {
     case 0:
       document.getElementById("results").innerHTML = "It's a draw";
-      document.getElementById("endResults").innerHTML = ` `;
       break;
     case 1:
       document.getElementById(
         "results"
       ).innerHTML = `You Win! ${playerSelection} beats ${computerSelection}`;
       playerWins++;
-      document.getElementById("endResults").innerHTML = ` `;
       break;
     case 2:
       document.getElementById(
         "results"
       ).innerHTML = `You Lose! ${playerSelection} loses to ${computerSelection}`;
       computerWins++;
-      document.getElementById("endResults").innerHTML = ` `;
       break;
   }
 
   // Reset the game and announce the winner
   if (playerWins == MAXGAMES || computerWins == MAXGAMES) {
-    document.getElementById("results").innerHTML = `Game Over!`;
-    document.getElementById("score").innerHTML = ` `;
+    document.getElementById("score").innerHTML = `Game Over!`;
 
     endGame(playerWins, computerWins);
     playerWins = 0;
@@ -62,12 +58,12 @@ function playRound(playerSelection) {
 function endGame(playerWins, computerWins) {
   if (playerWins > computerWins) {
     document.getElementById(
-      "endResults"
-    ).innerHTML = `You've won the game to a score of ${playerWins} - ${computerWins}`;
+      "results"
+    ).innerHTML = `You've won the game to a score of:<br>${playerWins} - ${computerWins}`;
   } else {
     document.getElementById(
-      "endResults"
-    ).innerHTML = `You've lost the game to a score of ${playerWins} - ${computerWins}`;
+      "results"
+    ).innerHTML = `You've lost the game to a score of:<br>${playerWins} - ${computerWins}`;
   }
 }
 
