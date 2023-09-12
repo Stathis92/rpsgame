@@ -6,7 +6,8 @@
 
 body {
   font-family: Roboto, Helvetica, sans-serif;
-  background-color: rgb(183, 206, 218);
+  background: rgb(16,75,99);
+  background: linear-gradient(90deg, rgba(16,75,99,1) 0%, rgba(21,121,162,1) 50%, rgba(16,75,99,1) 100%);
 }
 
 button {
@@ -19,7 +20,12 @@ button {
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 250px;
+    padding-top: 15%;
+    gap: 150px;
+}
+
+.score {
+    min-height: 15%;
 }
 
 .playerPick {
@@ -29,13 +35,40 @@ button {
     justify-content: center;
     border-style: dashed;
     max-width: 500px;
+    background-color: #124354;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 55px;
 }
 
-.empty {
+.playerPick img {
+    height: 100%;
+    width: auto;
+    pointer-events: none;
+    margin-right: 10px;
+  }
 
+
+
+
+  
+#Rock,
+#Paper,
+#Scissor {
+    background: #b0bbc0b7;
+    border: solid;
+    border-radius: 55px;
+    cursor: pointer;
 }
 
-.score {
-    padding-top: 100px;
-    min-height: 15%;
+#Rock:hover,
+#Paper:hover,
+#Scissor:hover {
+    background: #1f647b;
+}
+
+#Rock:active,
+#Paper:active,
+#Scissor:active {
+    background: #b4e8b8;
 }
