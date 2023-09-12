@@ -30,13 +30,13 @@ function playRound(playerSelection) {
     case 1:
       document.getElementById(
         "results"
-      ).innerHTML = `You Win! ${playerSelection} beats ${computerSelection}`;
+      ).innerHTML = `You Win! <br>${playerSelection} beats ${computerSelection}`;
       playerWins++;
       break;
     case 2:
       document.getElementById(
         "results"
-      ).innerHTML = `You Lose! ${playerSelection} loses to ${computerSelection}`;
+      ).innerHTML = `You Lose! <br>${playerSelection} loses to ${computerSelection}`;
       computerWins++;
       break;
   }
