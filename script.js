@@ -26,18 +26,21 @@ function playRound(playerSelection) {
   switch (condition) {
     case 0:
       document.getElementById("results").innerHTML = "It's a draw";
+      document.getElementById("endResults").innerHTML = ` `;
       break;
     case 1:
       document.getElementById(
         "results"
       ).innerHTML = `You Win! ${playerSelection} beats ${computerSelection}`;
       playerWins++;
+      document.getElementById("endResults").innerHTML = ` `;
       break;
     case 2:
       document.getElementById(
         "results"
       ).innerHTML = `You Lose! ${playerSelection} loses to ${computerSelection}`;
       computerWins++;
+      document.getElementById("endResults").innerHTML = ` `;
       break;
   }
 

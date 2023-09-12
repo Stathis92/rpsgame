@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissor</title>
   </head>
 
-  <body style="background-color: rgb(183, 206, 218)">
-    <div id="playerPick">
+  <body>
+    <div id="score" class="score"></div>
+
+    <div class="playerPick">
+      <div></div>
       <button id="Rock">Rock</button>
+      <div></div>
       <button id="Paper">Paper</button>
+      <div></div>
       <button id="Scissor">Scissor</button>
     </div>
 
-    <div id="results"></div>
+    <div id="results" class="results"></div>
 
-    <div id="score"></div>
-
-    <div id="endResults"></div>
+    <div id="endResults" class="endResults"></div>
 
     <script src="script.js"></script>
   </body>
