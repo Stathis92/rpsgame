@@ -1,71 +1,78 @@
+// Add event listener and call playRound function
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    playRound(button.id);
+  });
+});
+
 //Randomizes computer choice
 function getComputerChoice() {
   let randomSelect = Math.floor(Math.random() * choices.length);
   return choices[randomSelect];
 }
-//Fix the playerSelection case
-function playerSensitive(playerSelection) {
-  result =
-    playerSelection.charAt(0).toUpperCase() +
-    playerSelection.slice(1).toLowerCase();
-  return result;
-}
 
-function playRound(playerSelection, computerSelection) {
-  // your code here!
-  let condition;
+ // playRound conditions
+function playRound(playerSelection) {
+ 
+  const computerSelection = getComputerChoice();
   if (playerSelection == computerSelection) condition = 0;
   else if (
-    (playerSelection == "Paper" && computerSelection == "Scissors") ||
+    (playerSelection == "Paper" && computerSelection == "Scissor") ||
     (playerSelection == "Rock" && computerSelection == "Paper") ||
-    (playerSelection == "Scissors" && computerSelection == "Rock")
+    (playerSelection == "Scissor" && computerSelection == "Rock")
   )
     condition = 2;
   else condition = 1;
   switch (condition) {
     case 0:
-      console.log("It's a draw");
+      document.getElementById("results").innerHTML =
+      "It's a draw";
       break;
     case 1:
-      console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+      document.getElementById("results").innerHTML =
+      `You Win! ${playerSelection} beats ${computerSelection}`;
+      playerWins++;
       break;
     case 2:
-      console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+      document.getElementById("results").innerHTML =
+      `You Lose! ${playerSelection} loses to ${computerSelection}`;
+      computerWins++;
       break;
   }
-  return condition;
+
+  // Reset the game and announce the winner
+  if (playerWins == MAXGAMES || computerWins == MAXGAMES) {
+    document.getElementById("results").innerHTML
+    = `Game Over!`;
+    document.getElementById("score").innerHTML
+    = ` `;
+
+    endGame(playerWins, computerWins);
+    playerWins = 0;
+    computerWins = 0;
+
+  } else {
+    document.getElementById("score").innerHTML =
+    `Score is: ${playerWins} - ${computerWins}`;
+  }
 }
 
-//Game Function
-function game() {
-  let playerSelection = prompt("Select:\nRock\nPaper\nScissors");
-  playerSelection = playerSensitive(playerSelection);
-  const computerSelection = getComputerChoice();
-  result = playRound(playerSelection, computerSelection);
-  if (result == 1) {
-    playerWins++;
-  } else if (result == 2) {
-    computerWins++;
+
+function endGame(playerWins, computerWins) {
+  if (playerWins > computerWins) {
+    document.getElementById("endResults").innerHTML
+    = `You've won the game to a score of ${playerWins} - ${computerWins}`;
+  } else {
+    document.getElementById("endResults").innerHTML
+    = `You've lost the game to a score of ${playerWins} - ${computerWins}`;
   }
 }
 
 //Game Options and number of rounds
-const choices = ["Rock", "Paper", "Scissors"];
-const gameRounds = 5;
+const choices = ["Rock", "Paper", "Scissor"];
 let playerWins = 0,
-  computerWins = 0;
+  computerWins = 0,
 
-for (let i = 0; i < gameRounds; i++) {
-  game();
-}
-
-//Print Results
-if (playerWins == computerWins) {
-  console.log("Draw");
-} else if (playerWins > computerWins) {
-  console.log("You win! With a total of " + playerWins + " victories!");
-} else {
-  console.log(
-    "You lost! The computer had a total of " + computerWins + " victories!"
-  );
-}
+  //Total points needed to win a game
+  MAXGAMES = 5;
