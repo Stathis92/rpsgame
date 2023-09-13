@@ -11,3 +11,6 @@ Later on we will revisit this project and finish it up with some
 user interface.
 
 Best of luck to future me and to everyone doing this!
+
+Live Demo:
+https://stathis92.github.io/rpsgame/
